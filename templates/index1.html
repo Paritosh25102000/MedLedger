@@ -1,0 +1,245 @@
+<!-- extend base layout -->
+{% extends "base1.html" %}
+
+{% block content %}
+<style>
+	body {
+	  background-image: url('https://assets.entrepreneur.com/content/3x2/2000/20180315194714-GettyImages-862545030.jpeg');
+	}
+	 
+	
+</style>
+	<br>
+	<center>
+	<form action="/submit" id="textform" method="post">
+			
+		<br>
+		<!-- <input type="text" name="role" placeholder="Role"> -->
+		<!-- <label style="color:white" for="role">Choose a role:</label>
+		<select name="role" id="role">
+			<option value="Patient">Patient</option>
+			<option value="Doctor">Doctor</option>
+			<option value="Chemist">Chemist</option>
+		</select> -->
+		<br>
+		<input type="text" name="amount" placeholder="Transaction Amount">
+		<br>
+		<!-- <input type="text" name="paid" placeholder="Paid to">
+		<br> -->
+		<label style="color:white" for="to">Paid to:</label>
+		<select name="to" id="to">
+			<option value="Doctor">Doctor</option>
+			<option value="Chemist">Chemist</option>
+		</select>
+		<br>
+		<textarea name="content" rows=1 cols=25 placeholder="Doctor's/Chemist's Name"></textarea> 
+		<br>
+		<label style="color:white" for="need">Paid for:</label>
+		<select name="need" id="need">
+			<option value="Medicines">Medicines</option>
+			<option value="Consultation">Consultation</option>
+			<option value="Treatment">Treatment</option>
+		</select>
+		<br>
+		<label style="color:white" for="payment">Paid by:</label>
+		<select name="payment" id="payment">
+			<option value="Credit Card">Credit Card</option>
+			<option value="Debit Card">Debit Card</option>
+			<option value="Net Banking">Net Banking</option>
+			<option value="UPI">UPI</option>
+			<option value="Cash">Cash</option>
+		</select>
+		<br>
+		<br>
+		<input type="submit" value="Post">
+		</form>
+		
+
+		<br>
+
+		<a href='http://127.0.0.1:5000/mine'>
+			<style>
+				.button {
+				  border: none;
+				  color: white;
+				  padding: 16px 32px;
+				  text-align: center;
+				  text-decoration: none;
+				  display: inline-block;
+				  font-size: 16px;
+				  margin: 4px 2px;
+				  transition-duration: 0.4s;
+				  cursor: pointer;
+				}
+				
+				.button1 {
+				  background-color: white;
+				  color: black;
+				  border: 2px solid #4CAF50;
+				}
+				
+				.button1:hover {
+				  background-color: #4CAF50;
+				  color: white;
+				}
+				
+				</style>
+				<button class="button button1">Request to Mine</button>
+		<!-- <button>Request to mine</button></a>  -->
+
+		<a href='/display'>
+			<style>
+				.button {
+				  border: none;
+				  color: white;
+				  padding: 16px 32px;
+				  text-align: center;
+				  text-decoration: none;
+				  display: inline-block;
+				  font-size: 16px;
+				  margin: 4px 2px;
+				  transition-duration: 0.4s;
+				  cursor: pointer;
+				}
+				
+				.button1 {
+				  background-color: white;
+				  color: black;
+				  border: 2px solid blue;
+				}
+				
+				.button1:hover {
+				  background-color: blue;
+				  color: white;
+				}
+				
+				</style>
+				<button class="button button1">Medical History</button>
+			<!-- <button>See previous records</button></a>  -->
+
+		<a href="/logout">
+			<style>
+				.button {
+				  border: none;
+				  color: white;
+				  padding: 8px 16px;
+				  text-align: center;
+				  text-decoration: none;
+				  display: inline-block;
+				  font-size: 16px;
+				  margin: 4px 2px;
+				  transition-duration: 0.4s;
+				  cursor: pointer;
+				}
+				
+				.button1 {
+				  background-color: lightblue;
+				  color: black;
+				  border: 2px solid blue;
+				}
+				
+				.button1:hover {
+				  background-color: blue;
+				  color: lightblue;
+				}
+				
+				</style>
+				<button class="button button1">Logout</button>
+			<!-- <button>Logout</button></a> -->
+		
+		
+
+		<div style="margin: 20px;">
+		</center>
+
+		{% for post in posts %}
+		<div class="post_box">
+		<div class="post_box-header">
+			<div class="post_box-options"><button class="option-btn" id="go">Reply</button></div>
+			<div class="post_box-subtitle"> Posted at <i>{{readable_time(post.timestamp)}}</i></div>
+		</div>
+		<div>
+			<div class="post_box-body">
+				<!-- <strong>Posted by a :</strong> -->
+				<!-- <p>{{post.role}}</p> -->
+
+				<strong>Rs</strong>
+				<b>{{post.amount}}</b>
+				<strong>paid to</strong>
+				<b>{{post.to}}</b>
+				<b>{{post.content}}</b>
+				<strong>for</strong>
+				<b>{{post.need}}</b>
+				<strong>by</strong>
+				<b>{{post.payment}}</b>
+
+			</div>
+		</div>
+		</div>
+		{% endfor %}
+
+		
+		<style>
+			.post_box {
+				background: lightblue;
+				padding: 12px 0px 0px 12px;
+				margin-top: 0px;
+				margin-bottom: 8px;
+				border-top: 1px solid #f0f0f0;
+			}
+
+			.post_box-header {
+				padding-bottom: 12px;
+			}
+
+			.post_box-avatar {
+				width: 38px;
+				height: 38px;
+				border-radius: 50%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				color: lightblue;
+				font-size: 22px;
+				float: left;
+				margin-right: 16px;
+				border: 1px solid #fff;
+				box-shadow: 0px 0px 0px 2px #f00;
+			}
+
+			.post_box-avatar::after {
+				content:"";
+				display:block;
+			}
+
+			.post_box-name {
+				font-weight: bold;
+			}
+
+			.post_box-subtitle {
+				color: #777;
+			}
+
+			.post_box-body {
+				margin-top: 16px;
+				margin-bottom: 8px;
+			}
+
+			.post_box-options {
+				float: right;
+			}
+			.option-btn {
+				background: lightblue;
+				border: none;
+				color: #2c3e50;
+				padding: 7px;
+				cursor: pointer;
+				font-size: 14px;
+				margin-left: 2px;
+				margin-right: 2px;
+				outline: none;
+				height: 42px;
+			}
+		</style>
+		</div>
+	{% endblock %}
