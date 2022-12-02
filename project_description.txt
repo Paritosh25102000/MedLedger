@@ -1,0 +1,22 @@
+To Run the application:
+
+Install the dependencies –
+$ pip install -r requirements.txt
+Go to the project directory
+$ cd python_blockchain_app 
+
+Start a blockchain node server – 
+
+$ export FLASK_APP=node_server.py
+$ flask run --port 8000
+
+One instance of our blockchain node is now up and running at port 8000.
+
+Run the application on a different terminal session
+
+$ python run_app.py
+
+The application should be up and running at http://localhost:5000.
+
+To know more about the working
+open 2148017_49_BlockchainEHR.pdf or README
