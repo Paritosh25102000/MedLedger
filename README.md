@@ -48,5 +48,5 @@ Anonymity
 
 Immutability of information
 
-
+This project was inspired by this repository:  https://github.com/satwikkansal/python_blockchain_app
 
