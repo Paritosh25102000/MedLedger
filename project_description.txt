@@ -19,4 +19,4 @@ $ python run_app.py
 The application should be up and running at http://localhost:5000.
 
 To know more about the working
-open 2148017_49_BlockchainEHR.pdf or README
+open README
