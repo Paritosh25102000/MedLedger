@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>{{ title }}</title>
+  </head>
+  <body>
+      <div class="bd-example">
+          
+      </div>
+    
+    <div><a href="/home"><button>Resync</button></a></div>
+    <center><h1 style="color:white">{{ title }}</h1></center>
+    <center><h3 style="color:white">{{ body }}</h3></center>
+    <hr>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li>{{ message }} </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </body>
+</html>
