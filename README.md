@@ -22,7 +22,7 @@ Enforcing these constraints yields some highly desirable characteristics:
 ·         No single point of control or failure
 ·         A verifiable audit trail of the order in which data was added
 
-#Advantages:
+# Advantages:
 
 Enhances Security
 
@@ -36,7 +36,7 @@ Addressing data sharing and the recent pandemic
 
 Censorship
 
-#Limitations:
+# Limitations:
 
 High Implementation cost
 
